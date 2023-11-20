@@ -7,7 +7,7 @@ const App = () => {
 
   return (
     <>
-      
+      <h1>Pokemon List</h1>
     </>
   )
 }
