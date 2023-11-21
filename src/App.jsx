@@ -1,13 +1,14 @@
-import { useState } from 'react'
+import React from 'react'
+import PokemonList from './components/PokemonList'
 
-import './App.css'
 
 const App = () => {
  
 
   return (
     <>
-      <h1>Pokemon List</h1>
+      <h1>Pokemons</h1>
+      <PokemonList />
     </>
   )
 }
