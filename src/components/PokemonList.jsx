@@ -1,34 +1,37 @@
-import { useEffect } from "react"
-import App from "../App"
+import { useEffect, useState } from 'react';
 
 const PokemonList = () => {
-    
-   const url = `https://fsa-puppy-bowl.herokuapp.com/api/2310-fsa-et-web-ft-sf/players`;
-    
-   useEffect (() => {
-        const getPuppies = async () => {
-            const response = await fetch (url);
-            const data = await response.json()
-            console.log(data.data.players);
-        }
-        getPuppies ();
+   const [allPokemonList, setAllPokemonList] = useState([]);
+   
+    useEffect ( () => {
+     const getPokemon = async () => {
+       const response = await fetch(`https://pokeapi.co/api/v2/ability/`);
+       const responseJson = await response.json();
+       const allPokemon = responseJson.results;
+        setAllPokemonList(allPokemon);
         
-  });                    
 
-  
+     }       
+     getPokemon (); 
 
-   return (
-    <div>
-    <h2> Click on your Pokemon</h2>
-    </div>
-   )
-}
-
-export default PokemonList
+    }, []);
 
 
-const person = {
-    name: "Bill",
-    age: 56,
-}
-console.log(person.age);
+
+    return (
+        <>
+             <h1>PokemonList</h1>
+             {
+                allPokemonList.map((singlePokemon) => {
+                    return (
+                   <li key={singlePokemon.name}>{singlePokemon.name}</li>
+                    )
+                } )
+             }
+        </>
+    )
+
+    }
+
+
+export default PokemonList;

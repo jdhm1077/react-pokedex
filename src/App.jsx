@@ -1,14 +1,14 @@
-import React from 'react'
-import PokemonList from './components/PokemonList'
+
+import PokemonList from "./components/PokemonList";
 
 
 const App = () => {
- 
 
   return (
     <>
-      <h1>Pokemons</h1>
-      <PokemonList />
+    <h1>Pokedex</h1>
+
+    <PokemonList />
     </>
   )
 }
